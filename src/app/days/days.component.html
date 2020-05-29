@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                <button class="btn btn-danger pl-5 pr-5" (click)="data.addDay()">Add days</button>
+            </div>
+            <div>
+                <p class="ml-2">Days<span [ngStyle]="{color:'red'}">({{data.dayCount}})</span></p>
+            </div>
+            <div class="dayContainer">
+                <li (click) = "getTopic.getTopic()" class="btn dayList list-group-item list-group-item-action " *ngFor = "let day of data.dayList ;let j = index">{{day.dayNum}} <span class="close" [ngStyle]="{color: 'red', cursor: 'pointer'}" (click)="data.close(j);">x</span></li>
+            </div>
+        </div>
+    </div>
+</div>
