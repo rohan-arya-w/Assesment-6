@@ -8,7 +8,7 @@
                 <p class="ml-2">Days<span [ngStyle]="{color:'red'}">({{data.dayCount}})</span></p>
             </div>
             <div class="dayContainer">
-                <li (click) = "getTopic.getTopic()" class="btn dayList list-group-item list-group-item-action " *ngFor = "let day of data.dayList ;let j = index">{{day.dayNum}} <span class="close" [ngStyle]="{color: 'red', cursor: 'pointer'}" (click)="data.close(j);">x</span></li>
+                <li (click)="this.Service.getTopic()" class="btn dayList list-group-item list-group-item-action " *ngFor = "let day of data.dayList ;let j = index">{{day.dayNum}} <span class="close" [ngStyle]="{color: 'red', cursor: 'pointer'}" (click)="data.close(j);">x</span></li>
             </div>
         </div>
     </div>

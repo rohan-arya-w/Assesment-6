@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+import { DataServiceService } from '../data-service.service';
 
 @Component({
   selector: 'app-days',
@@ -6,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./days.component.css'],
 })
 export class DaysComponent implements OnInit {
-  @Input('getTopic') getTopic;
+  
   data = {
     title:[],
     i: 0,
@@ -25,10 +26,12 @@ export class DaysComponent implements OnInit {
     close(index){
       this.dayList.splice(index,1);
       this.title.splice(index,1);
-    }
+    },
+    
   };
-  constructor() {}
+  constructor(public Service:DataServiceService) {}
   ngOnInit(): void {
+    
 
   }
 }

@@ -11,9 +11,8 @@ export class AppComponent {
   htmlContent = '';
   instruction = '';
   
-    getTopic(){
-      console.log("checking")
-    }
+ 
+    
 
  
 

@@ -1,7 +1,49 @@
 <div class="card">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Cras justo odio</li>
-     
-    </ul>
-  </div>
+  <ul class="list-group list-group-flush">
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add a New topic</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+          <div class="form-group">
+            <label>Title</label><br>
+            <input type="text" [(ngModel)]='this.ContentService.topictitle'class="form-control" ><br>
+            {{this.ContentService.topictitle}}
+            <label for="Instruction">Type</label><br>
+            <input type="radio" id="Task" name="Instruction" value="Task"  >
+            <label for="Task">Task</label><br>
+            <input type="radio" id="Pre-read" name="Instruction" value="Pre-read">
+            <label for="Pre-read">Pre-read</label><br>
+            <hr>
+            <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent"></angular-editor>
 
+            <div class="text-right m-3">
+              
+            </div>
+            <angular-editor [placeholder]="'Instruction'" [(ngModel)]="instruction"></angular-editor>
+            <div class="text-right m-3">
+              
+            </div>
+
+          </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" (click)="modal.close('Save click')">Save</button>
+      </div>
+    </ng-template>
+
+    <button class="btn btn-lg btn-outline-danger" (click)="open(content)"> + Add Topic</button>
+
+
+
+
+
+    <li class="list-group-item">Manage</li>
+
+  </ul>
+</div>
