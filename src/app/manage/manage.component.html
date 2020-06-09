@@ -12,19 +12,19 @@
           <div class="form-group">
             <label>Title</label><br>
             <input type="text" [(ngModel)]='this.ContentService.topictitle'class="form-control" ><br>
-            {{this.ContentService.topictitle}}
+            
             <label for="Instruction">Type</label><br>
-            <input type="radio" id="Task" name="Instruction" value="Task"  >
+            <input type="radio" id="Task" name="Instruction" value="Task"  [(ngModel)]='this.ContentService.topictype' >
             <label for="Task">Task</label><br>
-            <input type="radio" id="Pre-read" name="Instruction" value="Pre-read">
+            <input type="radio" id="Pre-read" name="Instruction" value="Pre-read"  [(ngModel)]='this.ContentService.topictype'>
             <label for="Pre-read">Pre-read</label><br>
             <hr>
-            <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent"></angular-editor>
+            <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]='this.ContentService.topicContent'></angular-editor>
 
             <div class="text-right m-3">
               
             </div>
-            <angular-editor [placeholder]="'Instruction'" [(ngModel)]="instruction"></angular-editor>
+            <angular-editor [placeholder]="'Instruction'" [(ngModel)]='this.ContentService.topicInstructions'></angular-editor>
             <div class="text-right m-3">
               
             </div>
@@ -33,7 +33,8 @@
         
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline-danger" (click)="modal.close('Save click')">Save</button>
+        <button class="btn btn-danger" (click)="this.ContentService.CreateTopic()">Create Topic</button>
+        <button type="button" class="btn btn-outline-danger" (click)="modal.close('Save click')">Close</button>
       </div>
     </ng-template>
 
@@ -44,6 +45,15 @@
 
 
     <li class="list-group-item">Manage</li>
+    <li class="list-group-item" *ngFor="let item of this.ContentService.topics;let i =index">{{this.ContentService.topics[i].topictitle}}<span class="close mt-1 ml-3" (click)="this.ContentService.deletetopic(i)" [ngStyle]="{color: 'red', cursor: 'pointer'}" >x</span>
+      <span class="close"  [ngStyle]="{color: 'red', cursor: 'pointer'}">
+        <button class="btn btn-outline-danger" >{{this.ContentService.topictype}}</button>
+      </span>
+      <span class="close mr-3"  [ngStyle]="{color: 'red', cursor: 'pointer'}">
+        <button class="btn btn-success" >Edit</button>
+      </span>
+    </li>
+
 
   </ul>
 </div>
