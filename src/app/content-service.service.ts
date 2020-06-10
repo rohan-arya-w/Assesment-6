@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class ContentServiceService {
   topictitle : '';
   topictype : '';
-  topicContent: '';
+  topicContent: string;
   topicInstructions : '';
   topics =[] 
   constructor() { }

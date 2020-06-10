@@ -1,9 +1,31 @@
-<angular-editor  [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent"></angular-editor>
+<div class="form-group">
+    <label>Title</label><br>
+    <input type="text" [(ngModel)]='this.ContentService.topictitle' class="form-control"><br>
+
+    <label for="Instruction">Type</label><br>
+    <input type="radio" id="Task" name="Instruction" value="Task" [(ngModel)]='this.ContentService.topictype'>
+    <label for="Task">Task</label><br>
+    <input type="radio" id="Pre-read" name="Instruction" value="Pre-read" [(ngModel)]='this.ContentService.topictype'>
+    <label for="Pre-read">Pre-read</label><br>
+    <hr>
+
+    <div class="text-right m-3">
+
+    </div>
+
+    <div class="text-right m-3">
+
+    </div>
+
+</div>
+
+
+<angular-editor [placeholder]="'Enter text here...'" [(ngModel)]='this.ContentService.topicContent'></angular-editor>
 
 <div class="text-right m-3">
     <button class="btn btn-danger m-1 text-right" (click)="edit()">Save</button>
-    </div>
-<angular-editor [placeholder]="'Instruction'" [(ngModel)]="instruction"></angular-editor>
+</div>
+<angular-editor [placeholder]="'Instruction'" [(ngModel)]='this.ContentService.topicInstructions'></angular-editor>
 <div class="text-right m-3">
     <button class="btn btn-danger m-1 text-right" (click)="edit()">Save</button>
-    </div>
+</div>

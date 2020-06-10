@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { importType } from '@angular/compiler/src/output/output_ast';
+import { ContentServiceService } from '../content-service.service';
+import { DataServiceService } from '../data-service.service';
+
 
 @Component({
   selector: 'app-editor',
@@ -7,17 +10,15 @@ import { importType } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./editor.component.css']
 })
 export class EditorComponent implements OnInit {
-  @Input('htmlContent') htmlContent;
-  @Input('instruction') instruction; 
-  constructor() { }
+  
+  constructor(public ContentService:ContentServiceService) { }
 
   ngOnInit(): void {
   }
 edit(){
-    let j = this.htmlContent;  
-    let i =[];
-    i.push(j);
-    console.log(i);
+ this.ContentService.topics[0] = {'topictitle':this.ContentService.topicContent ,'topictype':this.ContentService.topictype,'topicContent':this.ContentService.topicContent,'topicInstructions':this.ContentService.topicInstructions }
+
+ console.log(this.ContentService.topics)
   }
   
 }
